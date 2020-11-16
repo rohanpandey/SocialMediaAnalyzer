@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.alert {
+   border: 0.4em solid rgb(200,200,200);
+   border-radius: 12px;
+  width: 80%;
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.custom {
+  font-family: Georgia;
+  color: rgb(34, 34, 100);
+  font-size:30px;
+   font-weight: 900;
+   text-align: center;
+}
+
+div.card {
+  border: 0.4em solid rgb(200,200,200);
+   border-radius: 12px;
+  width: 80%;
+  height: 100px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  background-color: rgb(215, 240, 249);
+}
+
+
+div.card1 {
+  border: 0.4em solid rgb(200,200,200);
+  border-radius: 12px;
+  width: 50%;
+  height: 60px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  background-color: rgb(215, 240, 249);
+}
+
+
+.closebtn:hover {
+  color: black;
+}
+</style>
+</head>
+<body style="background-image: url('https://icon-library.net/images/social-media-icon-collage/social-media-icon-collage-11.jpg');">
+<center>
+<div class="card">
+<h2 class="custom">Alert Message</h2>
+</div>
+</center>
+<p></p>
+<CENTER>
+<div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  <strong class="custom">Attention! Invalid URL Entered.</strong>
+</div>
+</CENTER>
+<br>
+<br>
+<br>
+<center>
+  <div class="card1">
+<font><a href="http://10.6.14.8:8080/" class="button"><font size="100"/><font color="black">Go Back To Retry</a></font></font>
+</div>
+</center>
+</body>
+</html>

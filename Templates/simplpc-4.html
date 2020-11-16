@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+
+hr {
+width: 90%;
+height: 5%;
+color: black;
+margin-right: auto;
+margin-left: auto;
+margin-top: 1%;
+margin-bottom: 1%;
+border: 2px solid rgb(232,232,232);
+}
+
+.vl {
+  border-left: 3px solid rgb(232,232,232);
+  
+  height: 700px;
+  position: absolute;
+  left: 30%;
+  margin-left: -3px;
+  top: 60px;
+}
+.vl2 {
+  border-left: 3px solid rgb(232,232,232);
+  height: 700px;
+  position: absolute;
+  left: 60%;
+  margin-left: -3px;
+  top: 60px;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns:  50% 50%;
+  
+ 
+  grid-gap: 35px;
+  background-color: #fff;
+  color: #444;
+ 
+
+}
+
+div.card {
+  border: 0.4em solid rgb(200,200,200);
+   border-radius: 12px;
+  width: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  background-color: rgb(215, 240, 249);
+}
+
+div.bar{
+  border: 0.4em solid rgb(200,200,200);
+   border-radius: 12px;
+  width: 100%;
+  height: 100px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  background-color: rgb(215, 240, 249);
+}
+
+div.bar2{
+  border: 0.4em solid rgb(200,200,200);
+   border-radius: 12px;
+  width: 100%;
+  height: 150px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  background-color: rgb(215, 240, 249);
+}
+
+
+
+div.header {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  font-size: 40px;
+}
+
+div.container {
+  width: 85%;
+  background-color:rgb(172, 213, 236); 
+  padding: 40px;
+}
+
+div.container2 {
+  width: 85%;
+  background-color:rgb(215, 240, 249); 
+  padding: 20px;
+}
+
+
+.box {
+  width: 90%;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.2);
+
+  padding: 35px;
+  border: 2px solid #fff;
+  border-radius: 20px/50px;
+  background-clip: padding-box;
+  text-align: center;
+  text-decoration-color: black;
+}
+
+.button {
+  font-size: 1em;
+  padding: 10px;
+  color: black;
+  border: 2px solid rgba(0,255,0,0.2);
+  border-radius: 20px/50px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+.button:hover {
+  background: #06D85F;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    width: 70%;
+  }
+}
+.star-rating {
+    direction: rtl;
+    display: inline-block;
+    padding: 20px
+}
+
+.star-rating input[type=radio] {
+    display: none
+}
+
+.star-rating label {
+    color: #bbb;
+    font-size: 18px;
+    padding: 0;
+    cursor: pointer;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label,
+.star-rating input[type=radio]:checked ~ label {
+    color: #f2b600
+}
+.checked {
+  color: orange;
+}
+</style>
+</head>
+
+  <body >
+
+
+  <div class="bar">
+       <h1><font color=rgb(10,50,90)>Average Profile Rating is {{Rating}}</font></h1>
+  </div>
+
+  <br>
+  <br>
+<div class="wrapper">
+
+      <div class='card'>
+              <CENTER>
+                <br>
+<br>
+
+  		<div id="piechart"></div>
+
+  		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+		<script type="text/javascript">
+			object = JSON.parse({{ object | tojson }})
+			google.charts.load('current', {'packages':['corechart']});
+			google.charts.setOnLoadCallback(drawChart);
+
+
+function drawChart() {
+  var data = google.visualization.arrayToDataTable(object);
+
+ 
+  var options = { 'width':400, 'height':400};
+
+
+
+  			var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  			chart.draw(data, options);
+			}
+		</script>
+            <div class='container2'>
+      <div class="box">
+      <a class="button" href="#relobjpop">Relevant Objects</a>
+</div>
+            </div>
+            </CENTER>
+	 </div>
+	
+	
+   <div class="card">
+    <CENTER>
+      <br>
+<br>
+
+  		<div id="piechart2"></div>
+  	
+  		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+		<script type="text/javascript">
+
+			google.charts.load('current', {'packages':['corechart']});
+			google.charts.setOnLoadCallback(drawChart);
+			adult = JSON.parse({{ adult | tojson }})
+
+function drawChart() {
+  var data = google.visualization.arrayToDataTable(adult);
+
+ 
+  var options = { 'width':400, 'height':400};
+
+  			var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+  			chart.draw(data, options);
+			}
+		</script>
+  
+	<div class='container2'>
+      <div class="box">
+      <a class="button" href="#safepop">Safe Search</a>
+</div>
+  </div>
+  </CENTER>
+</div>
+</div>
+<br>
+<br>
+<br>
+<div class='card'>
+      <CENTER>
+        <br>
+<div class="box">
+  <a class="button" href="#sentipop">Sentiment Timeline Chart</a>
+</div>
+<br>
+<br>
+
+<div id="curve_chart2">
+  
+</div>
+
+  		  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+	  senti = JSON.parse({{ senti | tojson }})
+
+      function drawChart() {
+
+	var data = google.visualization.arrayToDataTable(senti);
+
+        var options = {width:800,height:400,
+    explorer: {
+        maxZoomIn:4,
+        maxZoomOut:4,
+        keepInBounds: true
+    }
+};
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart2'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+  <div class='container2'>
+    </div>
+    </CENTER>
+</div>
+<br>
+<br>
+
+    <div class="wrapper">
+            <div class="card">
+    <center>
+      <br>
+<br>
+
+  		<div id="piechart4"></div>
+  		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+		<script type="text/javascript">
+
+			google.charts.load('current', {'packages':['corechart']});
+			google.charts.setOnLoadCallback(drawChart);
+			tag = JSON.parse({{ tag| tojson }})
+
+function drawChart() {
+  var data = google.visualization.arrayToDataTable(tag);
+
+ 
+  var options = { 'width':400, 'height':400};
+
+
+
+  			var chart = new google.visualization.PieChart(document.getElementById('piechart4'));
+  			chart.draw(data, options);
+			}
+		</script>
+
+<div class='container2'>
+      <div class="box">
+      <a class="button" href="#rellblpop">Relevant Labels</a>
+</div>
+	</div>
+  </center>
+</div>
+  
+     <div class="card">
+      <center>
+        <br>
+<br>
+
+  		<div id="piechart6"></div>
+  		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+		<script type="text/javascript">
+
+			google.charts.load('current', {'packages':['corechart']});
+			google.charts.setOnLoadCallback(drawChart);
+			category = JSON.parse({{ category | tojson }})
+
+function drawChart() {
+  var data = google.visualization.arrayToDataTable(category);
+
+ 
+  var options = { 'width':400, 'height':400};
+
+  			var chart = new google.visualization.PieChart(document.getElementById('piechart6'));
+  			chart.draw(data, options);
+			}
+		</script>
+<div class='container2'>
+      <div class="box">
+      <a class="button" href="#relcatpop">Relevant Categories</a>
+</div>
+	</div>
+</center>
+</div>
+</div>
+
+<div id="sentipop" class="overlay">
+  <div class="popup">
+    <h2>Sentiment Timeline Chart</h2>
+    <a class="close" href="#">&times;</a>
+    <div class="content">
+      This provides a sentiment analysis on the content uploaded by the user in the form of a timeline representing the sentiment of user of a user over time.
+    </div>
+  </div>
+</div>
+
+
+<div id="relobjpop" class="overlay">
+  <div class="popup">
+      <h2>Relevant Objects</h2>
+    <a class="close" href="#">&times;</a>
+    <div class="content">
+      This provides an insight into the objects that are most frequently occurring in the images uploaded by the user.
+    </div>
+  </div>
+</div>
+
+<div id="relcatpop" class="overlay">
+  <div class="popup">
+    <h2>Relevant Categories</h2>
+    <a class="close" href="#">&times;</a>
+    <div class="content">
+       Computer Vision returns the taxonomy-based categories detected in an image. Unlike tags, categories are organized in a parent/child hereditary hierarchy, and there are fewer of them (86, as opposed to thousands of tags).
+    </div>
+  </div>
+</div>
+
+<div id="rellblpop" class="overlay">
+  <div class="popup">
+    <h2>Relevant Labels</h2>
+    <a class="close" href="#">&times;</a>
+    <div class="content">
+      This provides the tags corresponding to the entire image uploaded by the user.
+    </div>
+  </div>
+</div>
+
+<div id="safepop" class="overlay">
+  <div class="popup">
+    <h2>Safe Search</h2>
+    <a class="close" href="#">&times;</a>
+    <div class="content">
+       This provides an insight into the safety of the content uploaded by the user, in terms of adult content safety.
+    </div>
+  </div>
+</div>
+</div>
+  <br>
+  <br>
+  <div class="bar2">
+      <form method='GET' name="rating" action="/data" >
+<div class="star-rating" >
+        <h1><font color=rgb(10,50,90)><i>Provide Your Rating</i></font></h1>
+      <input id="star-5" type="submit" name="5" hidden="True">
+      <label for="star-5" title="5 stars">
+          <i class="active fa fa-star" aria-hidden="true"></i>
+      </label>
+      <input id="star-4" type="submit" name="4" hidden="True">
+      <label for="star-4" title="4 stars">
+          <i class="active fa fa-star" aria-hidden="true"></i>
+      </label>
+      <input id="star-3" type="submit" name="3" hidden="True">
+      <label for="star-3" title="3 stars">
+          <i class="active fa fa-star" aria-hidden="true"></i>
+      </label>
+      <input id="star-2" type="submit" name="2" hidden="True">
+      <label for="star-2" title="2 stars">
+          <i class="active fa fa-star" aria-hidden="true"></i>
+      </label>
+      <input id="star-1" type="submit" name="1" hidden="True">
+      <label for="star-1" title="1 star">
+          <i class="active fa fa-star" aria-hidden="true"></i>
+      </label>
+    </div>
+      </form>
+  </div>
+
+
+</body>
+</html>

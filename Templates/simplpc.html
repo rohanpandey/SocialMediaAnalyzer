@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+hr {
+width: 90%;
+height: 0.5px;
+background-color: rgb(232,232,232);
+margin-right: auto;
+margin-left: auto;
+margin-top: 5px;
+margin-bottom: 5px;
+
+}
+.vl {
+  border-left: 3px solid rgb(232,232,232);
+  
+  height: 700px;
+  position: absolute;
+  left: 30%;
+  margin-left: -3px;
+  top: 60px;
+}
+.vl2 {
+  border-left: 3px solid rgb(232,232,232);
+  height: 700px;
+  position: absolute;
+  left: 60%;
+  margin-left: -3px;
+  top: 60px;
+}
+
+
+
+html {
+  font-family: "Lucida Sans", sans-serif;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 400px 400px 400px;
+  grid-gap: 35px;
+  background-color: #fff;
+  color: #444;
+}
+
+
+
+</style>
+</head>
+<body>
+<div class="vl"></div>
+<div class="vl2"></div>
+<div class="wrapper">
+  <div >
+  		<div id="piechart"></div>
+
+  		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+		<script type="text/javascript">
+			object = JSON.parse({{ object | tojson }})
+			google.charts.load('current', {'packages':['corechart']});
+			google.charts.setOnLoadCallback(drawChart);
+
+
+function drawChart() {
+  var data = google.visualization.arrayToDataTable(object);
+
+ 
+  var options = {'title':'Relevant_Object', 'width':550, 'height':400};
+
+
+
+  			var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  			chart.draw(data, options);
+			}
+		</script>
+<hr>
+
+	</div>
+	
+	
+   <div >
+  		<div id="piechart2"></div>
+  	
+  		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+		<script type="text/javascript">
+
+			google.charts.load('current', {'packages':['corechart']});
+			google.charts.setOnLoadCallback(drawChart);
+			adult = JSON.parse({{ adult | tojson }})
+
+function drawChart() {
+  var data = google.visualization.arrayToDataTable(adult);
+
+ 
+  var options = {'title':'Safe_Search', 'width':550, 'height':400};
+
+
+
+  			var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+  			chart.draw(data, options);
+			}
+		</script>
+		<hr>
+	</div>
+  
+  
+     <div >
+  		<div id="piechart3"></div>
+  		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+		<script type="text/javascript">
+
+			google.charts.load('current', {'packages':['corechart']});
+			google.charts.setOnLoadCallback(drawChart);
+
+
+//function drawChart() {
+  //var data = google.visualization.arrayToDataTable(input);
+
+ 
+  //var options = {'title':'Relevant_Object', 'width':550, 'height':400};
+			function drawChart() {
+  				var data = google.visualization.arrayToDataTable([
+  				['Task', 'Hours per Day'],
+  				['Work', 8],
+  				['Eat', 2],
+  				['TV', 4],
+  				['Gym', 2],
+  				['Sleep', 8]
+				]);
+
+ 			var options = {'title':'My Average Day', 'width':400, 'height':400};
+  			var chart = new google.visualization.PieChart(document.getElementById('piechart3'));
+  			chart.draw(data, options);
+			}
+		</script>
+	<hr>
+	</div>
+
+
+
+   <div >
+  		<div id="piechart4"></div>
+  		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+		<script type="text/javascript">
+
+			google.charts.load('current', {'packages':['corechart']});
+			google.charts.setOnLoadCallback(drawChart);
+			tag = JSON.parse({{ tag| tojson }})
+
+function drawChart() {
+  var data = google.visualization.arrayToDataTable(tag);
+
+ 
+  var options = {'title':'Relevant_Labels', 'width':550, 'height':400};
+
+
+
+  			var chart = new google.visualization.PieChart(document.getElementById('piechart4'));
+  			chart.draw(data, options);
+			}
+		</script>
+
+	</div>
+  
+  
+  
+     <div >
+  		<div id="piechart5"></div>
+  		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+		<script type="text/javascript">
+
+			google.charts.load('current', {'packages':['corechart']});
+			google.charts.setOnLoadCallback(drawChart);
+			//adult = JSON.parse({{ adult | tojson }})
+
+//function drawChart() {
+  //var data = google.visualization.arrayToDataTable(input);
+
+ 
+  //var options = {'title':'Relevant_Object', 'width':550, 'height':400};
+			function drawChart() {
+  				var data = google.visualization.arrayToDataTable([
+  				['Task', 'Hours per Day'],
+  				['Work', 8],
+  				['Eat', 2],
+  				['TV', 4],
+  				['Gym', 2],
+  				['Sleep', 8]
+				]);
+
+ 			var options = {'title':'My Average Day', 'width':400, 'height':400};
+  			var chart = new google.visualization.PieChart(document.getElementById('piechart5'));
+  			chart.draw(data, options);
+			}
+		</script>
+
+	</div>
+  
+  
+  
+     <div >
+  		<div id="piechart6"></div>
+  		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+		<script type="text/javascript">
+
+			google.charts.load('current', {'packages':['corechart']});
+			google.charts.setOnLoadCallback(drawChart);
+			category = JSON.parse({{ category | tojson }})
+
+function drawChart() {
+  var data = google.visualization.arrayToDataTable(category);
+
+ 
+  var options = {'title':'Relevant_Categories', 'width':550, 'height':400};
+
+
+
+  			var chart = new google.visualization.PieChart(document.getElementById('piechart6'));
+  			chart.draw(data, options);
+			}
+		</script>
+
+	</div>
+</div>
+
+
+
+
+</body>
+</html>
+

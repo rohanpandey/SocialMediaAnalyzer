@@ -1,0 +1,2 @@
+import os
+os.environ['TEXT_ANALYTICS_SUBSCRIPTION_KEY']= '5658c1a7476a4f81b004c21f7ac8e8aa'
