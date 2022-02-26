@@ -19,10 +19,10 @@ def clean(s):
 
 
 #Twitter API credentials
-consumer_key = '8h6BgPkyVwPnjKgdHzjPqOW2k'
-consumer_secret = 'eWMI0WIxqDn4r5a1onCTbvpkKEtlfpNRTyAwx5atRoEjhGozdE'
-access_key = '1195392511386083329-HiV3KbzXd9D6e5zHqU54IdSBV4ih1n'
-access_secret = '0z2ZiOaU0kHwtSiWPpKm8KMNfuU8ShXlqU6EQLJqS707a'
+consumer_key = "********"
+consumer_secret = "********"
+access_key = "********"
+access_secret = "********"
 
 
 def get_all_tweets(screen_name):
